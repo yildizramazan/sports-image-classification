@@ -1,0 +1,49 @@
+# Sports Image Classification Config File
+
+paths:
+  data_dir: "dataset"
+  train_csv: "dataset/train.csv"
+  test_csv: "dataset/test.csv"
+  model_dir: "models"
+  plot_dir: "result plots"
+
+data:
+  image_size: 224
+  batch_size: 32
+  num_workers: 2
+  val_split: 0.2
+
+training:
+  num_epochs: 20
+  learning_rate: 0.001
+  optimizer: "Adam"
+  weight_decay: 0.0001
+  early_stopping_patience: 5
+
+model:
+  model_type: "resnet18"  # "custom_cnn" or "resnet18"
+  num_classes: 7
+  dropout_rate: 0.3
+  custom_cnn:
+    num_blocks: 4
+    base_filters: 32
+  resnet18:
+    freeze_backbone: true
+    unfreeze_last_n: 1
+
+scheduler:
+  type: "StepLR"
+  step_size: 5
+  gamma: 0.5
+
+mlflow:
+  tracking_uri: "sqlite:///mlflow.db"
+  experiment_name: "sports-classification"
+  artifact_location: "./mlartifacts"
+  log_every_n_steps: 10
+  log_models: true
+  registry_model_name: "SportsClassifier"
+
+export:
+  onnx_opset_version: 11
+  dynamic_batch: true

@@ -1,0 +1,23 @@
+# IDE ve Editör klasörleri
+.idea/
+.vscode/
+*.code-workspace
+
+# Python Sanal Ortam
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Büyük Veri ve Veri Setleri (Kesinlikle yüklenmemeli)
+data/
+dataset/
+
+# MLflow ve Takip Dosyaları
+mlruns/
+mlartifacts/
+mlflow.db
+
+# Dokümanlar ve Kişisel Planlar
+PROJE_PLANI*
+notebook.ipynb

@@ -1,0 +1,15 @@
+torch
+torchvision
+optuna
+pandas
+numpy
+matplotlib
+seaborn
+scikit-learn
+streamlit
+onnx
+onnxruntime
+opencv-python
+Pillow
+pyyaml
+tqdm
