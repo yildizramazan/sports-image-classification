@@ -12,3 +12,5 @@ mlartifacts/
 mlflow.db
 PROJE_PLANI*
 notebook.ipynb
+notebooks/mlflow_egitim.ipynb
+notebooks/mlflow_egitim.db

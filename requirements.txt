@@ -13,3 +13,4 @@ opencv-python
 Pillow
 pyyaml
 tqdm
+mlflow
