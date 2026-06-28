@@ -14,7 +14,8 @@ def get_train_transforms(image_size=224):
         v2.RandomHorizontalFlip(p=0.5),
         v2.RandomRotation(degrees=15),
         v2.ColorJitter(brightness=0.2, contrast=0.2, saturation=0.1, hue=0.01),
-        v2.ToTensor(),
+        v2.ToImage(),  
+    v2.ToDtype(torch.float32, scale=True),
         v2.Normalize(mean=[0.4177, 0.4200, 0.4048],
         std=[0.2876, 0.2782, 0.2822]),
     ])
@@ -25,7 +26,8 @@ def get_test_transforms(image_size=224):
 
     test_transforms=v2.Compose([
         v2.Resize((image_size,image_size)),
-        v2.ToTensor(),
+        v2.ToImage(),  
+        v2.ToDtype(torch.float32, scale=True),
         v2.Normalize(mean=MEAN,
         std=STD),
     ])

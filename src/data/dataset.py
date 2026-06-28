@@ -1,6 +1,7 @@
 # Custom PyTorch Dataset definition
 
 
+from collections import Counter
 from PIL import Image
 from torch.utils.data import Dataset
 import pandas as pd
@@ -39,5 +40,19 @@ class SportsDataset(Dataset):
         return image,label
         
 
+def get_class_distribution(dataset):
+    return Counter(dataset.df["label"])
 
-        
+
+
+def get_sample_images(dataset, n_per_class=3):
+    sample_images = {}
+    for cls in dataset.classes:
+        sampled_rows = dataset.df[dataset.df["label"] == cls].sample(n_per_class)
+        imgs = []
+        for index, row in sampled_rows.iterrows():
+            img_path = os.path.join(dataset.img_dir, row["image_ID"])
+            image = Image.open(img_path).convert("RGB")
+            imgs.append(image)
+        sample_images[cls] = imgs
+    return sample_images

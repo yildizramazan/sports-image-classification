@@ -13,3 +13,4 @@ PROJE_PLANI*
 notebook.ipynb
 notebooks/mlflow_egitim.ipynb
 notebooks/mlflow_egitim.db
+src/data/test_dataloaders.py
